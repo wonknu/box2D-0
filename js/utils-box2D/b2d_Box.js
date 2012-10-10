@@ -10,7 +10,9 @@
     
     /**
      * Constructor
-     * @param {Object} options => width, height, x, y
+     * @extends TemplateBox2D
+     * 
+     * @param {Object} options => width, height, x, y, type, density, friction, restitution
      */
     function Box (options)
     {

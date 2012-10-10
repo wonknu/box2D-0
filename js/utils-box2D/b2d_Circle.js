@@ -12,7 +12,9 @@
     
     /**
      * Constructor
-     * @param {Object} options => radius, x, y
+     * @extends TemplateBox2D
+     * 
+     * @param {Object} options => radius, x, y, type, density, friction, restitution
      */
     function Circle (options)
     {

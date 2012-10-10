@@ -10,6 +10,7 @@ var canvasElem = document.getElementById(CANVAS_ID),
 world,
 fixDef,
 bodyDef,
+
 /**
  * CONSTANTES DEFINITIONS FILE 
  */
