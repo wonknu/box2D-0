@@ -21,7 +21,7 @@ POSITION_ITERATIONS = 10,
 CANVAS_WIDTH = canvasElem.width,
 CANVAS_HEIGHT = canvasElem.height,
 CTX = canvasElem.getContext("2d"),
-
+CANVAS_POSITION = getElementPosition(canvasElem),
 /**
  * VARIABLE TO USE LESS BOX2D VERBOSE 
  */

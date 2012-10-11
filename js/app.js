@@ -7,15 +7,15 @@
  */
 
 $(document).ready(function() {
+    
     world = new b2World(
         new b2Vec2(0, 10),// GRAVITY
         true              // ALLOW TO SLEEP
     );
     
-    // set up ground
-    //Ground.create();
     Debug.draw();
     Wall.create();
+    Mouse.initClickListener();
     /*
     // creation d'un carre'
     var box = new Box({
@@ -38,9 +38,10 @@ $(document).ready(function() {
     });
     
     var arrElem = [new Actor(circle.body, 'img/rond.png', 57, 57)];
-    
+
     function update ()
     {
+        var userData, pos, b, bodyMouse;
         world.Step(FRAME_RATE, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
         world.DrawDebugData();
         world.ClearForces();
@@ -49,9 +50,13 @@ $(document).ready(function() {
         
         //CTX.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT); // clear canvas, pour ensuite le redessiner
         
-        var userData, pos;
+        if(Mouse.hasMouseDown()) {
+            console.log('string');
+            bodyMouse = Mouse.getBodyAtMouse();
+        }
+        
         // loop sur toute les occurence
-        for (var b = world.GetBodyList() ; b; b = b.GetNext()) {
+        for (b = world.GetBodyList(); b; b = b.GetNext()) {
             if(b.GetType() === b2Body.b2_dynamicBody && notNull(b.GetFixtureList()) && notNull(b.GetFixtureList().m_userData)){
                 userData = b.GetFixtureList().m_userData;
                 if (notNull(userData.img)){
@@ -63,7 +68,7 @@ $(document).ready(function() {
                     CTX.restore();
                 }
             }
-        };
+        }
     }
     
     update();
